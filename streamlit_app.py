@@ -42,3 +42,7 @@ with st.expander('Input features'):
   st.write('**Combined Penguin Data**')
   input_penguins
 
+# Encoding 
+encode = ['island', 'gender']
+df_penguins = pd.get_dummies(input_penguins, prefix=encode)
+df_peguins[:1]

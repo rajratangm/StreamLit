@@ -105,14 +105,19 @@ import pandas as pd
 
 import streamlit as st
 import pandas as pd
-import altair as alt
 
-import pandas as pd
-df = pd.DataFrame({
-'lat': [37.76, 37.77],
-'lon': [-122.4, -122.5]
-})
+# Sample latitude and longitude data for cities in India
+data = {
+    'lat': [28.6139, 19.0760, 13.0827, 22.5726, 12.9716],  # Delhi, Mumbai, Chennai, Bangalore, Kolkata
+    'lon': [77.2090, 72.8777, 80.2707, 88.3639, 77.5946]
+}
+
+# Create a DataFrame
+df = pd.DataFrame(data)
+
+# Display the map with markers for the specified coordinates
 st.map(df)
+
 
 
 

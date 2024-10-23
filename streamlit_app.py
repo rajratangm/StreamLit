@@ -104,14 +104,10 @@
 #     new_page1()
 
 
-import pandas as pd
-import streamlit as st
+import matplotlib.pyplot as plt
 
-df = pd.DataFrame({
-    'A': [1, 2, 3],
-    'B': [4, 5, 6]
-})
+fig, ax = plt.subplots()
+ax.plot([1, 2, 3, 4], [10, 20, 25, 30])
+st.pyplot(fig)
 
-st.write(df)  # Simple output
-st.dataframe(df)  # Interactive output
 

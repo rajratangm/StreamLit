@@ -67,6 +67,11 @@ def new_page():
     st.title('Welcome to the New Page!')
     st.write('This is another page. You can put any content here.')
     st.write('Go back to the **Home** page using the sidebar buttons.')
+def new_page1():
+    st.title('Welcome to the New Page1!')
+    st.write('This is another page1111. You can put any content here.')
+    st.write('Go back to the **Home** page using the sidebar buttons.')
+    
 
 # Sidebar navigation buttons
 with st.sidebar:
@@ -75,6 +80,8 @@ with st.sidebar:
         st.session_state.page = 'Home'
     if st.button('New Page'):
         st.session_state.page = 'New Page'
+    if st.button('New1'):
+        st.session_state.page='new1'
 
 # Set default page if session state does not exist
 if 'page' not in st.session_state:
@@ -85,3 +92,7 @@ if st.session_state.page == 'Home':
     home_page()
 elif st.session_state.page == 'New Page':
     new_page()
+elif st.session_state.page=='new1':
+    new_page1()
+
+

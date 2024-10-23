@@ -103,10 +103,29 @@ import pandas as pd
 # elif st.session_state.page=='new1':
 #     new_page1()
 
-
+import streamlit as st
+import pandas as pd
 import altair as alt
-chart = alt.Chart(df).mark_bar().encode(x='column1', y='column2')
-st.altair_chart(chart)
+
+# Create a sample DataFrame
+data = {
+    'column1': ['A', 'B', 'C', 'D', 'E'],  # Categories
+    'column2': [10, 20, 30, 40, 50]        # Values
+}
+df = pd.DataFrame(data)
+
+# Display the DataFrame
+st.write(df)
+
+# Create an Altair bar chart
+chart = alt.Chart(df).mark_bar().encode(
+    x='column1',
+    y='column2'
+)
+
+# Display the chart in Streamlit
+st.altair_chart(chart, use_container_width=True)
+
 
 
 

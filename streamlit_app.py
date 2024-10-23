@@ -104,10 +104,12 @@
 #     new_page1()
 
 
-import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+import streamlit as st
 
-fig, ax = plt.subplots()
-ax.plot([1, 2, 3, 4], [10, 20, 25, 30])
-st.pyplot(fig)
+chart_data = pd.DataFrame(np.random.randn(20, 3), columns=['A', 'B', 'C'])
+st.line_chart(chart_data)
+
 
 

@@ -1,5 +1,5 @@
-# import streamlit as st
-# import pandas as pd
+import streamlit as st
+import pandas as pd
 
 # # Function to display the Home page content
 # def home_page():

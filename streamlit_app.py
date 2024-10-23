@@ -69,7 +69,7 @@ def new_page():
     st.selectbox('select scenarios', ['scenario1','scenario2','scenario3'])
     st.checkbox('compare two jobs')
     st.checkbox('select all areas')
-    st.multiselect('select areas',['Tko','tmo','kto']
+    st.multiselect('select areas',['Tko','tmo','kto'])
                  
     st.title('Welcome to the New Page!')
     st.write('This is another page. You can put any content here.')

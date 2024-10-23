@@ -104,16 +104,9 @@ import pandas as pd
 #     new_page1()
 
 
-import streamlit as st
-import pandas as pd
-
-import streamlit as st
-import pandas as pd
-
-col1, col2 = st.columns(2)
-col1.write('Column 1')
-col2.write('Column 2')
-
+import altair as alt
+chart = alt.Chart(df).mark_bar().encode(x='column1', y='column2')
+st.altair_chart(chart)
 
 
 

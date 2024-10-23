@@ -109,7 +109,9 @@ st.session_state.count = 0
  
 
 if st.button('Increment'):
-st.session_state.count += 1
+    st.session_state.count += 1
+if st.button('dcreament'):
+    st.session_state.count -=1
 st.write(st.session_state.count)
 
 

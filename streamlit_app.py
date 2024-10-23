@@ -104,11 +104,17 @@ import pandas as pd
 #     new_page1()
 
 
-uploaded_file = st.file_uploader("Choose a file")
+import streamlit as st
+import pandas as pd
+
+uploaded_file = st.file_uploader("Choose a file", type=['xlsx', 'xls'])  # Ensure only Excel files can be uploaded
 if uploaded_file is not None:
-    st.write("File uploaded successfully!")
-    df = pd.read_excel(uploaded_file)
-    df
+    try:
+        st.write("File uploaded successfully!")
+        df = pd.read_excel(uploaded_file)
+        st.write(df)  # Display the uploaded data as a table in Streamlit
+    except Exception as e:
+        st.error(f"Error: {e}")
 
 
 

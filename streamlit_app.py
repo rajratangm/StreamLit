@@ -104,17 +104,51 @@ import pandas as pd
 #     new_page1()
 
 import streamlit as st
-if 'count' not in st.session_state:
-    st.session_state.count = 0
- 
 
-if st.button('Increment'):
-    st.session_state.count += 1
-if st.button('dcreament'):
-    st.session_state.count -=1
-st.write(st.session_state.count)
+# Define the tooltip text
+tooltip_text = "Click this button to perform an action."
 
+# Display button with a tooltip
+if st.button('Hover me!'):
+    st.success('Button clicked!')
 
+# Display the tooltip information using markdown
+st.markdown(
+    f"""
+    <style>
+    .tooltip {{
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+    }}
+    .tooltip .tooltiptext {{
+        visibility: hidden;
+        width: 120px;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        border-radius: 5px;
+        padding: 5px 0;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%; /* Position above the button */
+        left: 50%;
+        margin-left: -60px;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }}
+    .tooltip:hover .tooltiptext {{
+        visibility: visible;
+        opacity: 1;
+    }}
+    </style>
+    <div class="tooltip">
+        Hover me!
+        <span class="tooltiptext">{tooltip_text}</span>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
 
 

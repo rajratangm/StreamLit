@@ -64,6 +64,13 @@ def home_page():
 
 # Function to display the New Page content
 def new_page():
+    st.checkbox('Show inputs only')
+    st.selectbox('select a job', ['job1', 'job2','job3'])
+    st.selectbox('select scenarios', ['scenario1','scenario2','scenario3'])
+    st.checkbox('compare two jobs')
+    st.checkbox('select all areas')
+    st.multiselect('select areas',['Tko','tmo','kto']
+                 
     st.title('Welcome to the New Page!')
     st.write('This is another page. You can put any content here.')
     st.write('Go back to the **Home** page using the sidebar buttons.')

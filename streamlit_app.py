@@ -107,25 +107,12 @@ import streamlit as st
 import pandas as pd
 import altair as alt
 
-# Create a sample DataFrame
-data = {
-    'column1': ['A', 'B', 'C', 'D', 'E'],  # Categories
-    'column2': [10, 20, 30, 40, 50]        # Values
-}
-df = pd.DataFrame(data)
-
-# Display the DataFrame
-st.write(df)
-
-# Create an Altair bar chart
-chart = alt.Chart(df).mark_bar().encode(
-    x='column1',
-    y='column2'
-)
-
-# Display the chart in Streamlit
-st.altair_chart(chart, use_container_width=True)
-
+import pandas as pd
+df = pd.DataFrame({
+'lat': [37.76, 37.77],
+'lon': [-122.4, -122.5]
+})
+st.map(df)
 
 
 

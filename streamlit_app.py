@@ -1,27 +1,23 @@
 import streamlit as st
 import pandas as pd
 
-# Sidebar navigation
-with st.sidebar:
-    page = st.selectbox('Choose a page', ['Home', 'New Page'])
-
-# Home page
-if page == 'Home':
+# Function to display the Home page content
+def home_page():
     st.title('🎈 Machine Learning App by Rajratan')
     st.info('This is a practice app')
     
     with st.expander('Data'):
         st.write('**Raw Data**')
         df = pd.read_csv('https://raw.githubusercontent.com/dataprofessor/data/master/penguins_cleaned.csv')
-        df
+        st.write(df)
 
         st.write('**X**')
         X = df.drop('species', axis=1)
-        X 
+        st.write(X)
 
         st.write('**y**')
         y_raw = df.species
-        y_raw
+        st.write(y_raw)
 
     with st.expander('Data visualization'):
         st.scatter_chart(data=df, x='bill_length_mm', y='body_mass_g', color='species')
@@ -44,7 +40,7 @@ if page == 'Home':
             'body_mass_g': body_mass_g,
             'sex': gender
         }
-        
+
         input_df = pd.DataFrame(data, index=[0])
         input_penguins = pd.concat([input_df, X], axis=0)
 
@@ -61,13 +57,31 @@ if page == 'Home':
 
     with st.expander('Input features'):
         st.write('**Input data**')
-        input_df
+        st.write(input_df)
         st.write('**Combined Penguin Data**')
-        input_penguins
+        st.write(input_penguins)
         st.write('Encoded input Penguins')
 
-# New Page
-elif page == 'New Page':
+# Function to display the New Page content
+def new_page():
     st.title('Welcome to the New Page!')
     st.write('This is another page. You can put any content here.')
-    st.write('Go back to the **Home** page using the sidebar menu.')
+    st.write('Go back to the **Home** page using the sidebar buttons.')
+
+# Sidebar navigation buttons
+with st.sidebar:
+    st.header('Navigation')
+    if st.button('Home'):
+        st.session_state.page = 'Home'
+    if st.button('New Page'):
+        st.session_state.page = 'New Page'
+
+# Set default page if session state does not exist
+if 'page' not in st.session_state:
+    st.session_state.page = 'Home'
+
+# Render the page content based on which button is clicked
+if st.session_state.page == 'Home':
+    home_page()
+elif st.session_state.page == 'New Page':
+    new_page()

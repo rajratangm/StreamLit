@@ -103,7 +103,12 @@
 # elif st.session_state.page=='new1':
 #     new_page1()
 
+import pandas as pd
 import streamlit as st
+
+# Sample DataFrame
+data = {'Name': ['Alice', 'Bob'], 'Score': [90, 85]}
+df = pd.DataFrame(data)
 
 # Add CSS to disable text selection
 st.markdown(
@@ -113,13 +118,14 @@ st.markdown(
         -webkit-user-select: none; /* Safari */
         -moz-user-select: none;    /* Firefox */
         -ms-user-select: none;     /* IE */
-        user-select: none;         /* Non-prefixed version, currently
-                                      supported by Chrome and Opera */
+        user-select: none;         /* Non-prefixed version */
     }
     </style>
     """,
     unsafe_allow_html=True
 )
 
-# Example of content that shouldn't be selectable
-st.markdown('<div class="no-select">This is sensitive data.</div>', unsafe_allow_html=True)
+# Display the DataFrame
+st.markdown('<div class="no-select">', unsafe_allow_html=True)
+st.dataframe(df)  # Displaying the DataFrame
+st.markdown('</div>', unsafe_allow_html=True)

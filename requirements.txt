@@ -4,3 +4,4 @@ pandas
 scikit-learn
 matplotlib
 altair
+streamlit_option_menu
